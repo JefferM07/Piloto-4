@@ -1,0 +1,253 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+
+        .carousel {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%; 
+            z-index: 0;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        .header {
+            background-color: black;
+            height: 100px; 
+            width: 100%; 
+            position: absolute; 
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+
+        .header img {
+            height: 100px; 
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding-top: 150px;
+            z-index: 2;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 105px;
+        }
+        
+        h1 {
+            color: #050505;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .container .row .col-3 {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: url('https://img.icons8.com/ios-filled/50/000000/chevron-down.png') no-repeat right 10px center;
+            background-size: 15px 15px;
+            padding-right: 60px;
+        }
+
+        .alert {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Carrusel -->
+    <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="img/Inventario.png" class="d-block w-100" alt="Fondo 1">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="img/Imagen2.png" class="d-block w-100" alt="Fondo 2">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="img/Imagen3.png" class="d-block w-100" alt="Fondo 3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Fondo negro en la parte superior -->
+    <div class="header">
+        <img src="img/Logo.png" alt="Logo">
+    </div>
+
+    <!-- Contenedor del formulario -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Registro Inventario</h1>
+            </div>
+        </div>
+
+        <!-- Formulario -->
+        <form id="registroForm">
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">*Número de Factura</div>
+                <div class="col-9">
+                    <div class="input-group">
+                        <span class="input-group-text">#</span>
+                        <input type="text" name="valorFactura" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">*Código</div>
+                <div class="col-9">
+                    <div class="input-group">
+                        <span class="input-group-text">#</span>
+                        <input type="text" name="valorCodigo" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">*Nombre Producto</div>
+                <div class="col-9">
+                    <select name="valorNombre" class="form-control" required>
+                        <option value="" disabled selected>Seleccione material</option>
+                        <option value="CAJA RATWELT 5800 3/4">CAJA RATWELT 5800 3/4</option>
+                        <option value="TOMA DE INCRUSTAR CODELCA 50A/250V BIFASICA">TOMA DE INCRUSTAR CODELCA 50A/250V BIFASICA</option>
+                        <option value="CABLE No 8 DESNUDO">CABLE No 8 DESNUDO</option>
+                        <option value="CABLE ENCAUCHETADO 3 X 14">CABLE ENCAUCHETADO 3 X 14</option>
+                        <option value="BREAKER ENCHUFABLE LEGRAN 1 X 20 A">BREAKER ENCHUFABLE LEGRAN 1 X 20 A</option>
+                        <option value="TERMINAL PVC 1">TERMINAL PVC 1</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">*Fecha de Entrada</div>
+                <div class="col-9">
+                    <input type="date" name="valorFechaEntrada" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">*Cantidad de Entrada</div>
+                <div class="col-9">
+                    <input type="number" name="valorCantidadEntrada" class="form-control" min="1" required>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">Fecha de Salida</div>
+                <div class="col-9">
+                    <input type="date" name="valorFechaSalida" class="form-control">
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">*Cantidad de Salida</div>
+                <div class="col-9">
+                    <input type="number" name="valorCantidadSalida" class="form-control" min="0">
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">*Proveedor</div>
+                <div class="col-9">
+                    <select name="valorProveedor" class="form-control" required>
+                        <option value="" disabled selected>Seleccione el proveedor</option>
+                        <option value="ELECTRICOS HR">ELECTRICOS HR</option>
+                        <option value="FERRELECTRICOS DIEGO NOVOA">FERRELECTRICOS DIEGO NOVOA</option>
+                        <option value="MEM">MEM</option>
+                        <option value="NACIONAL DE ELECTRICOS HH">NACIONAL DE ELECTRICOS HH</option>
+                        <option value="GRUPO ELECTRICO PERSA">GRUPO ELECTRICO PERSA  GEP SAS</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">*Sede</div>
+                <div class="col-9">
+                    <select name="valorUbicacion" class="form-control" required>
+                        <option value="" disabled selected>Seleccione una sede</option>
+                        <option value="Almacen">Almacen</option>
+                        <option value="Compensar">Compensar</option>
+                        <option value="Jardines">Jardines</option>
+                        <option value="Comedores">Comedores</option>
+                        <option value="Otros Clientes">Otros Clientes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-3">Observaciones</div>
+                <div class="col-9">
+                    <textarea name="valorObservaciones" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Mensaje de respuesta -->
+        <div class="alert alert-success" id="successMessage"></div>
+        <div class="alert alert-danger" id="errorMessage"></div>
+    </div>
+
+    <script>
+        // Manejo del envío del formulario con AJAX
+        $('#registroForm').on('submit', function(event) {
+            event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+
+            // Realizar la solicitud AJAX
+            $.ajax({
+                url: 'registro.php',  // Ruta del archivo PHP que procesa los datos
+                type: 'POST',
+                data: $(this).serialize(),  // Serializar los datos del formulario
+                dataType: 'json',
+                success: function(response) {
+                    // Mostrar mensaje según la respuesta del servidor
+                    if (response.status === 'success') {
+                        $('#successMessage').text(response.message).show();
+                        $('#errorMessage').hide();
+                    } else {
+                        $('#errorMessage').text(response.message).show();
+                        $('#successMessage').hide();
+                    }
+                },
+                error: function() {
+                    // Mostrar mensaje de error si la solicitud falla
+                    $('#errorMessage').text('Error en la solicitud AJAX').show();
+                    $('#successMessage').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
